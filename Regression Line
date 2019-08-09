@@ -1,0 +1,16 @@
+import pandas as pd
+
+phy = list(map(int,input().split()))
+his = list(map(int,input().split()))
+
+m=pd.Series(phy)
+n=pd.Series(his)
+
+r=m.cov(n)/(m.std()*n.std())
+
+beta1 = (r*n.std())/m.std()
+
+beta0 = n.mean()- beta1*m.mean()
+a=int(input())
+n = beta0 + beta1*a
+print(round(y,3))
